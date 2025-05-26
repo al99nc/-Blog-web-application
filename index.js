@@ -15,7 +15,7 @@ app.use(session({
 let posts = [];
 
 function id_gen() {
-    return Math.floor(Math.random() * 1000000);
+    return uuidv4();
 }
 
 app.get("/", (req, res) => {
