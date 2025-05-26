@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Post</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include("partials/header.ejs") %>
+
+<form action="/submit-id" method="post">
+    <input type="text" placeholder="Enter Post ID" name="search_id" required>
+    <input type="submit" value="Search">
+</form>
+
+<% if (typeof searchId !== 'undefined' && searchId !== null) { %>
+    <!-- If a post is found, display its details -->
+    <h1>Post Found:</h1>
+    <ul>
+        <li>
+            <h2><%= searchId.Title %></h2>
+            <p><%= searchId.body_post %></p>
+            <small>ID: <%= searchId.id %></small>
+        </li>
+    </ul>
+<% } else { %>
+    <!-- If no post is found, display a message -->
+    <p>No post found with the given ID.</p>
+<% } %>
+
+<form action="/submit-id-update" method="post">
+    <input type="text" name="Title" value="<%= savedDataT %>" required>
+    <input type="text" name="body_post" value="<%= savedDataB %>" required>
+    <input type="submit" value="UPDATE">
+</form>
+
+<form action="/submit-id-delete" method="post">
+    <input type="submit" value="DELETE">
+</form>
+
+
+<%- include("partials/footer.ejs") %>
+</body>
+</html>

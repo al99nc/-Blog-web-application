@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Web App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include("partials/header.ejs") %>
+<form action="/submit-cp" method="post">
+    <input type="text" placeholder="Title" name="Title" required>
+    <input type="text" placeholder="It all begins with a spark." name="body_post" required>
+    <input type="submit" value="POST">
+</form>
+<%- include("partials/footer.ejs") %>
+</body>
+</html>
